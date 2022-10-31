@@ -4,6 +4,11 @@
 </div>
 <br>
 <div class="mb-3">
+    <label for="author" class="form-label">Autor@</label>
+    <input required type="text" value="<%= article.author%>" class="form-control" id="author" name="author">
+</div>
+<br>
+<div class="mb-3">
     <label for="description" class="form-label">Descripción</label>
     <textarea required type="text" rows="6" class="form-control" id="description" name="description">
         <%= article.description%>
@@ -12,14 +17,14 @@
 <br>
 <div class="mb-3">
     <label for="markdown" class="form-label">Resumen</label>
-    <input required type="text" class="form-control" id="markdown" name="markdown" value="<%= article.markdown%>">
+    <input type="text" class="form-control" id="markdown" name="markdown" value="<%= article.markdown%>">
 </div>
 <br>
 <a href="/" class="btn btn-outline-danger">
     <i class="bi bi-x-circle-fill"></i>
     Cancelar
 </a>
-<button type="submit" class="btn btn-primary">
+<button type="submit" class="btn btn-outline-secondary">
     <i class="bi bi-vector-pen"></i>
     Guardar
 </button>

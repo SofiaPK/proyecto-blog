@@ -21,7 +21,11 @@ const articleSchema = new mongoose.Schema(
             type: String,
             require: true
         },
-        description:{
+        author: {
+            type: String,
+            require: true
+        },
+        description: {
             type: String
         },
         markdown: {

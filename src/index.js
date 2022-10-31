@@ -7,6 +7,7 @@ const Article = require('../models/article')
 const methodOverride = require('method-override')
 const app = express()
 const articleRouter = require('../routes/articles')
+const userRouter = require('../routes/users')
 const port = process.env.PORT || 3000
 
 //todas nuestras views van a ser escritas en ejs, view engine convierte el codigo ejs en HTML
@@ -32,8 +33,13 @@ mongoose
     .then(() => console.log('Conectado a MongoDB Atlas'))
     .catch((err) => console.error(err));
 
-app.use('/articles', articleRouter)
 
+// definicion base de rutas
+app.use('/articles', articleRouter) //por cada /articles va una ruta
+app.use('/users', userRouter) //por cada /users va otra ruta
+
+// configuracion que permite leer todo lo que está en la carpeta /public
+app.use(express.static("public"));
 
 app.listen(port, 
     ()=> console.log(`Server escuchando en puerto ${port}`)
