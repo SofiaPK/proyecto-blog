@@ -3,6 +3,9 @@
 body{
     background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
+nav{
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
 
 p, h5, h6, button, a, input, textarea, blockquote{
     font-family: 'Yrsa', serif;

@@ -1,23 +1,23 @@
 <div class="mb-3">
     <label for="title" class="form-label">Titulo</label>
-    <input required type="text" value="<%= article.title%>" class="form-control" id="title" name="title">
+    <input required type="text" value="<%= article.title%>" class="form-control" id="title" name="title" placeholder="T&iacute;tulo del texto">
 </div>
 <br>
 <div class="mb-3">
     <label for="author" class="form-label">Autor@</label>
-    <input required type="text" value="<%= article.author%>" class="form-control" id="author" name="author">
+    <input required type="text" value="<%= article.author%>" class="form-control" id="author" name="author" placeholder="Autor@ del texto">
 </div>
 <br>
 <div class="mb-3">
     <label for="description" class="form-label">Descripción</label>
-    <textarea required type="text" rows="6" class="form-control" id="description" name="description">
+    <textarea required type="text" class="form-control" id="description" name="description" placeholder="Escriba aqu&iacute; su texto">
         <%= article.description%>
     </textarea>
 </div>
 <br>
 <div class="mb-3">
     <label for="markdown" class="form-label">Resumen</label>
-    <input type="text" class="form-control" id="markdown" name="markdown" value="<%= article.markdown%>">
+    <input type="text" class="form-control" id="markdown" name="markdown" value="<%= article.markdown%>" placeholder="Agregue una breve descripci&oacute;n del texto o la fuente de donde proviene">
 </div>
 <br>
 <a href="/" class="btn btn-outline-danger">
