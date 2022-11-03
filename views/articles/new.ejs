@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-</head>
-<body>
-    <%-include('../common/_index.ejs')%>
-    <div class="container">
-        <h1>
-            Nuevo post
-        </h1>
-        <!--se tiene que crear el formulario que va a ser la estructura para introducir la base de datos-->
-        <form action="/articles" method="POST">
-            <%- include('_form.ejs') %>
-        </form>
-    </div>
-</body>
-</html>
+<%-include('../common/_index.ejs')%>
+<div class="container mx-auto" style="max-width:800px;">
+    <h3>
+        Nuevo post
+    </h3>
+    <!--se tiene que crear el formulario que va a ser la estructura para introducir la base de datos-->
+    <form action="/articles" method="POST">
+        <%- include('_form.ejs') %>
+    </form>
+</div>
+<br>

@@ -1,85 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-</head>
-<body>
-    <div>
+<div>
+    <% if(req.session.user){ %>
+        <a role="button" class="btn btn-outline-primary btn-sm ms-3 mt-3" href="/users/logout">Cerrar Sesión</a>
+    <% } else{ %>  
         <a role="button" class="btn btn-outline-primary btn-sm ms-3 mt-3" href="/users/new">Crear usuario</a>
-        <a role="button" class="btn btn-outline-primary btn-sm ms-1 mt-3">Ingresar</a>
+        <a role="button" class="btn btn-outline-primary btn-sm ms-1 mt-3" href="/users/login">Ingresar</a>
+    <% } %>
+
+</div>
+<%-include('../common/_index.ejs')%>
+<div class="container mx-auto">
+    <br>
+    <div class="container d-flex mb-3 justify-content-center">
+        <% if(req.session.user){ %>
+        <a class="btn btn-outline-success ms-auto" href="/articles/new" role="button">
+            <i class="bi bi-pencil"> Escribir</i>
+        </a>
+        <% } %>
     </div>
-    <%-include('../common/_index.ejs')%>
-    <div class="container mx-auto">
-        <div class="container d-flex mb-3 justify-content-center">
-            <a class="btn btn-outline-success ms-auto p-2" href="/articles/new" role="button">
-                <i class="bi bi-pencil"> Escribir</i>
-            </a>
+    <br>
+    <% articles.forEach(article => { %>
+        <div class="card border-light mx-auto"  style="max-width:800px;">
+            <div class="card-header pt-3 bg-transparent">
+                <h4 class="card-title" style="text-align: center">
+                    <%= article.title %>
+                </h4>
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote">
+                <p> <%= article.description %> </p>
+                <footer class="blockquote-footer mt-2"><%= article.author %>. <cite title="Source Title"><%= article.markdown %></cite></footer>
+                </blockquote>
+            </div>
+            <div class="d-flex justify-content-end  m-3">
+                <a class="btn btn-outline-secondary me-2" href="/articles/<%= article.slug%>" role="button" style="height:fit-content">
+                    Ver +
+                </a>
+                <% if(req.session.user){ %>
+                <a class="btn btn-outline-secondary me-2" href="/articles/edit/<%= article.id%>" role="button" style="height:fit-content">
+                    Editar
+                </a>
+                <form action="/articles/<%= article.id%>?_method=DELETE" method="POST">
+                    <button type="submit" class="btn btn-outline-danger me-2">
+                        <i class="bi bi-trash-fill"> Eliminar</i>
+                    </button>
+                </form>
+                <% } %>
+            </div>
         </div>
-        <% articles.forEach(article => { %>
-            <div class="card border-light mx-auto"  style="max-width:800px;">
-                <div class="card-header pt-3 bg-transparent">
-                    <h4 class="card-title" style="text-align: center">
+        <br>
+
+        <!--
+            ESTE ES EL FORMATO QUE CREAMOS CON EL PROFE JUAN
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h4 class="card-title">
                         <%= article.title %>
                     </h4>
+                    <h6 class="card-subtitle mb-2 text-muted"> 
+                        <%= article.author %>
+                    </h6>
+                    <p class="card-text">
+                        <%= article.markdown %>
+                    </p>
                 </div>
-                <div class="card-body">
-                  <blockquote class="blockquote mx-0">
-                    <p> <%= article.description %> </p>
-                    <footer class="blockquote-footer mt-2"><%= article.author %>. <cite title="Source Title"><%= article.markdown %></cite></footer>
-                  </blockquote>
-                </div>
-                <div class="d-flex justify-content-end m-3">
-                    <a class="btn btn-outline-secondary me-md-2" href="/articles/<%= article.slug%>" role="button">
+                <div class="d-flex justify-content-end m-2">
+                    <a class="btn btn-primary" href="/articles/<%= article.slug%>" role="button">
                         Ver +
                     </a>
-                    <a class="btn btn-outline-secondary me-md-2" href="/articles/edit/<%= article.id%>" role="button">
+                    <a class="btn btn-warning" href="/articles/edit/<%= article.id%>" role="button">
                         Editar
                     </a>
                     <form action="/articles/<%= article.id%>?_method=DELETE" method="POST">
-                        <button type="submit" class="btn btn-outline-danger me-md-2">
+                        <button type="submit" class="btn btn-danger">
                             <i class="bi bi-trash-fill"> Eliminar</i>
                         </button>
                     </form>
                 </div>
-            </div>
-            <br>
+            </div> 
+        -->
 
-
-            <!--
-                ESTE ES EL FORMATO QUE CREAMOS CON EL PROFE JUAN
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <%= article.title %>
-                        </h4>
-                        <h6 class="card-subtitle mb-2 text-muted"> 
-                            <%= article.author %>
-                        </h6>
-                        <p class="card-text">
-                            <%= article.markdown %>
-                        </p>
-                    </div>
-                    <div class="d-flex justify-content-end m-2">
-                        <a class="btn btn-primary" href="/articles/<%= article.slug%>" role="button">
-                            Ver +
-                        </a>
-                        <a class="btn btn-warning" href="/articles/edit/<%= article.id%>" role="button">
-                            Editar
-                        </a>
-                        <form action="/articles/<%= article.id%>?_method=DELETE" method="POST">
-                            <button type="submit" class="btn btn-danger">
-                                <i class="bi bi-trash-fill"> Eliminar</i>
-                            </button>
-                        </form>
-                    </div>
-                </div> 
-            -->
-
-
-        <% }); %>
-    </div>
-</body>
-</html>
+    <% }); %>
+</div>

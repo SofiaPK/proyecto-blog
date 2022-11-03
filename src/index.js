@@ -1,5 +1,7 @@
 //Express nos permite crear el servidor
 const express = require('express')
+const expressSession = require('express-session');
+
 //Mongoose nos sirve para la database
 const mongoose = require('mongoose')
 require('dotenv').config()
@@ -16,6 +18,12 @@ app.use(express.urlencoded({extended: false}))
 app.use(methodOverride('_method'))
 //todo lo que es override se utiliza con el nombre como '_method'
 
+app.use(expressSession({
+    secret: 'mantener_sesion_asd__123',
+    resave: true, //Obliga a que la sesión se guarde de nuevo en el store de sesiones, incluso si la sesión nunca se modificó durante la solicitud. 
+    saveUninitialized: true //Obliga a que una sesión "no inicializada" se guarde en el store. Una sesión es no-inicializda cuando es nueva pero no modificada
+}))
+
 //Ruta Principal Home
 // la '/' es nuestra main-route 
 app.get('/', async(req, res)=>{
@@ -24,8 +32,10 @@ app.get('/', async(req, res)=>{
         createdAt: "desc"
     });
     //render accede a la carpeta views/articles, se le pasa la ruta que queremos (en este caso es index)
-    res.render('articles/index', {articles: articles})
+    res.render('articles/index', {articles: articles, req: req})
 })
+
+
 
 // MongoDB Collection
 mongoose

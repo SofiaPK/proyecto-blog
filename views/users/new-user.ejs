@@ -1,19 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-</head>
-<body>
-    <%-include('../common/_index.ejs')%>
-    <div class="container">
-        <h4 style="text-align: center">Crear nuevo usuario</h4>
-        <!--se tiene que crear el formulario que va a ser la estructura para introducir la base de datos-->
-        <form action="/users" method="POST">
-            <%- include('_form-user.ejs') %>
-        </form>
-    </div>
-</body>
-</html>
+<%-include('../common/_index.ejs')%>
+<div class="container">
+    <h4 style="text-align: center">Crear nuevo usuario</h4>
+    <!--se tiene que crear el formulario que va a ser la estructura para introducir la base de datos-->
+    
+    <!--  Esto es un form. Un form que (mediante in include) contiene inputs con datos. El form envia esos datos mediante
+            su metodo(method) en este caso POST, a una URL definida por 'action'. 
+
+          Es decir, que este form envia los datos de los inputs a /users.
+    -->
+    <form action="/users" method="POST">
+        <%- include('_form-user.ejs') %>
+    </form>
+</div>
+<br>
+<br>
+<div>
+    <a href="/" class="btn btn-outline-secondary ms-5">
+        <i class="bi bi-arrow-left-circle-fill"></i> Ir al inicio
+    </a>
+</div>

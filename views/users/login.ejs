@@ -1,0 +1,15 @@
+<%-include('../common/_index.ejs')%>
+<div class="container">
+    <h4 style="text-align: center">Ingresar al Blog</h4>
+    <!--se tiene que incluir el formulario que va a ser la estructura para introducir la base de datos-->
+    <form action="/users/login" method="POST">
+        <%- include('_form-login.ejs') %>
+    </form>
+</div>
+<br>
+<br>
+<div>
+    <a href="/" class="btn btn-outline-secondary ms-5">
+        <i class="bi bi-arrow-left-circle-fill"></i> Ir al inicio
+    </a>
+</div>
