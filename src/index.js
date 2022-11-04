@@ -1,13 +1,14 @@
 //Express nos permite crear el servidor
 const express = require('express')
 const expressSession = require('express-session');
+const app = express()
 
 //Mongoose nos sirve para la database
 const mongoose = require('mongoose')
 require('dotenv').config()
 const Article = require('../models/article')
 const methodOverride = require('method-override')
-const app = express()
+
 const articleRouter = require('../routes/articles')
 const userRouter = require('../routes/users')
 const port = process.env.PORT || 3000
@@ -26,6 +27,7 @@ app.use(expressSession({
 
 //Ruta Principal Home
 // la '/' es nuestra main-route 
+//la funcion (req, res) maneja cuando hay una solicitud get en el camino '/'
 app.get('/', async(req, res)=>{
 //    res.send('Proyecto')
     const articles = await Article.find().sort({

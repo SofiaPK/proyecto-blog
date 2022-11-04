@@ -1,15 +1,20 @@
-# Proyecto Final del Bootcamp Full-Stack Node.js Developer 
+# Proyecto Final Full-Stack Node.js Developer Bootcamp
 ## Programa [Digit@lers](https://digitalers.com.ar/) de Telecom Argentina. 
 Este proyecto se basa en crear un sitio web utilizando el contenido visto durante la cursada.
 Mi idea es un blog llamado **“Palabras Libres”** en el que las personas usuarias puedan compartir sus escritos.
 
-*Qué se puede hacer en este blog?
-    *Ver el sitio web sin tener un usuario creado (funcionalidades limitadas: solo poder ver el inicio).
-    *Crear un usuario para acceder a la web utilizando email y contraseña.
-    *Ingresar al sitio web teniendo un usuario previamente creado.
-    *Mantener la sesión activa mientas se esté navegando por el sitio web.
-    *Cerrar la sesión.
-    *El usuario tiene la posibilidad de poder cambiar su contraseña.
-    *Crear un artículo (con las opciones a rellenar: título, autor@, descripción y resumen/fuente).
-    *El artículo puede verse completo o resumido.
-    *El usuario puede editar sus artículos o eliminarlos.
+*Qu&eacute; se puede hacer en este blog?
+ *Ver el sitio web sin tener un usuario creado (funcionalidades limitadas: s&oacute;lo poder ver los art&eacute;culos del inicio).
+ *Crear un usuario para acceder a la web utilizando email y contraseña.
+ *Ingresar al sitio web teniendo un usuario previamente creado.
+ *Mantener la sesi&oacute;n activa mientas se est&eacute; navegando por el sitio web.
+ *Cerrar la sesi&oacute;n.
+ *El usuario tiene la posibilidad de poder cambiar su contraseña.
+ *Crear un art&iacute;culo (con opciones a rellenar: t&iacute;tulo, autor@, descripci&oacute;n y resumen/fuente).
+ *El art&iacute;culo puede verse completo o resumido.
+ *El usuario puede editar sus art&iacute;culos o eliminarlos.
+ *En el perfil del usuario se pueden ver los art&iacute;culos que ese mismo usuario cre&oacute;
+ 
+*Ideas futuras:
+ *Que los usuarios puedan comentar los art&iacute;culos de otros usuarios
+ *Que se pueda poner en favoritos alg&uacute;n art&iacute;culo y se vea reflejado en el perfil.

@@ -1,5 +1,6 @@
 <div>
     <% if(req.session.user){ %>
+        
         <a role="button" class="btn btn-outline-primary btn-sm ms-3 mt-3" href="/users/logout">Cerrar Sesión</a>
     <% } else{ %>  
         <a role="button" class="btn btn-outline-primary btn-sm ms-3 mt-3" href="/users/new">Crear usuario</a>

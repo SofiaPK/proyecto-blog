@@ -12,6 +12,11 @@ router.get('/login', (req, res)=>{
     res.render('users/login')
 })
 
+router.get('/logout', (req, res)=>{
+    req.session.user = null
+    res.redirect('/')
+})
+
 //creo un nuevo usuario
 router.post('/', async(req, res, next)=>{
     req.user = new User() //usuario vacio
@@ -20,6 +25,7 @@ router.post('/', async(req, res, next)=>{
 
 
 //obtenemos el usuario nuevo
+// : es parametro
 //esta ruta responde a un name dinamico
 router.get('/:name', async(req, res)=>{
     const user = await User.findOne({name: req.params.name})
@@ -41,14 +47,13 @@ guardo al usuario en req.user y redirecciono a la home
 router.post('/login', async (req, res, next)=>{
     const user = await User.findOne({email: req.body.email, password: req.body.password})
     if (!user){
-       res.redirect('login')
+       res.redirect('/login')
     }else{
         req.session.user = user //aca utilizo express-session para guardar la sesion del usuario
-        res.render('users/profile', {user : user})
+        res.redirect(`/users/${user.name}`)
     }
     next()
 })
-
 
 
 //guardar usuario y redireccionar
