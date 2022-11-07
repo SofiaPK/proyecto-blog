@@ -37,14 +37,14 @@
                     Ver +
                 </a>
                 <% if(req.session.user){ %>
-                <a class="btn btn-outline-secondary me-2" href="/articles/edit/<%= article.id%>" role="button" style="height:fit-content">
-                    Editar
-                </a>
-                <form action="/articles/<%= article.id%>?_method=DELETE" method="POST">
-                    <button type="submit" class="btn btn-outline-danger me-2">
-                        <i class="bi bi-trash-fill"> Eliminar</i>
-                    </button>
-                </form>
+                    <a class="btn btn-outline-secondary me-2" href="/articles/edit/<%= article.id%>" role="button" style="height:fit-content">
+                        Editar
+                    </a>
+                    <form action="/articles/<%= article.id%>?_method=DELETE" method="POST">
+                        <button type="submit" class="btn btn-outline-danger me-2">
+                            <i class="bi bi-trash-fill"> Eliminar</i>
+                        </button>
+                    </form>
                 <% } %>
             </div>
         </div>
